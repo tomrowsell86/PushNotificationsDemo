@@ -1,0 +1,12 @@
+#Visual Studio generated file
+*.suo
+
+bin/
+obj/
+#NuGet
+
+packages/
+*.csproj.user
+
+#Our build script output
+output/
