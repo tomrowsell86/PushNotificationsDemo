@@ -6,4 +6,12 @@ namespace PushNotificationsHandler.Models
     {
         void Push(InboundMessage message);
     }
+
+    public class InboundProcessor : IInboundProcessor
+    {
+        public void Push(InboundMessage message)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }
