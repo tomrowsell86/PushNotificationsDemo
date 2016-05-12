@@ -100,7 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\InboundMessageControllerTests.cs" />
-    <Compile Include="Models\ColourFormatParserTests.cs" />
+    <Compile Include="Models\ColourFormatParserTests\ColourFormatParserMultipleFormatBlockTests.cs" />
+    <Compile Include="Models\ColourFormatParserTests\ColourFormatParserSingleFormatBlockTests.cs" />
     <Compile Include="Models\InboundProcessorWithMessagesFormattedMessageTests.cs" />
     <Compile Include="Models\InboundProcessorWithMessagesUnFormattedMessageTests.cs" />
     <Compile Include="Models\TestCaseBuilders\MessageBuilder.cs" />

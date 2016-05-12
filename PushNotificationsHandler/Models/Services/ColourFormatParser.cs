@@ -7,7 +7,7 @@ namespace PushNotificationsHandler.Models.Services
 {
     public class ColourFormatParser : IColourFormatParser
     {
-        private const string MessagePartColourPattern = @"\{colour:(?<colour>#[0-9A-Fa-f]{6})\}(?<messagePart>.+)\{colour\}";
+        private const string MessagePartColourPattern = @"\{colour:(?<colour>#[0-9A-Fa-f]{6})\}(?<messagePart>.+?)\{colour\}";
 
         public IList<ColourFormattedPart> GetFormattedParts(string messageText)
         {
