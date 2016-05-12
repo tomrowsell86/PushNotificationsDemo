@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Web.Http;
 using Moq;
 using NUnit.Framework;
 using PushNotificationsHandler.Controllers.Api;
-using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Api;
+using PushNotificationsHandler.Models.Services;
 
-namespace PushNotificationsHandler.UnitTests
+namespace PushNotificationsHandler.UnitTests.Controllers
 {
     [TestFixture]
     public class InboundMessageControllerTests

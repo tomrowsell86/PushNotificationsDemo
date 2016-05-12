@@ -99,7 +99,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InboundMessageControllerTests.cs" />
+    <Compile Include="Controllers\InboundMessageControllerTests.cs" />
+    <Compile Include="Models\InboundProcessorWithMessagesFormattedMessageTests.cs" />
+    <Compile Include="Models\InboundProcessorWithMessagesUnFormattedMessageTests.cs" />
+    <Compile Include="Models\TestCaseBuilders\MessageBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
