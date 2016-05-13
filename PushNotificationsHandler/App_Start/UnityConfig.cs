@@ -29,6 +29,7 @@ namespace PushNotificationsHandler.App_Start
             container.RegisterInstance<IMessageRepository>(new InMemoryMessageRepository());
             container.RegisterType<IColourFormatParser, ColourFormatParser>();
             container.RegisterType<IMessageModelFactory, IMessageModelFactory>();
+            container.RegisterType<IMessageModelService, MessageModelService>();
         }
     }
 }

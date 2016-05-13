@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PushNotificationsHandler.Models.Services;
 using PushNotificationsHandler.Repositories.Interface;
 
@@ -20,6 +21,11 @@ namespace PushNotificationsHandler.Repositories
                 _cache.Add(newId, messageModel);
                 return newId;
             }
+        }
+
+        public IList<IMessageModel> SelectAll()
+        {
+            return _cache.Values.ToList();
         }
 
         public void Dispose()

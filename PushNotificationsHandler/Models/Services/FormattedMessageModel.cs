@@ -19,6 +19,11 @@ namespace PushNotificationsHandler.Models.Services
 
         public Guid? Id { get; private set; }
 
+        public string PrintMessage()
+        {
+            return MessageText;
+        }
+
         public void Add()
         {
             Id = _messageRepository.AddMessage(this);
