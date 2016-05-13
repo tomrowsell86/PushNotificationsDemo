@@ -26,7 +26,7 @@ namespace PushNotificationsHandler.UnitTests.Models
                                                               To = "0778723133"
                                                           };
 
-        private readonly List<ColourFormattedPart> _formattedParts = new List<ColourFormattedPart>{ new ColourFormattedPart("#FF0000", "RedMessage")};
+        private readonly List<ColourFormattedPart> _formattedParts = new List<ColourFormattedPart>{ new ColourFormattedPart("#FF0000", "RedMessage",1)};
 
         [SetUp]
         public void GivenAnInboundMessageWithFormatting_WhenPushedToProcessor()

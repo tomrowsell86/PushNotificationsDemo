@@ -24,5 +24,20 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         {
             Assert.That(_result.Count, Is.EqualTo(3));
         }
+
+        [Test]
+        public void ThenCorrectOrdinalsSetInResult()
+        {
+            Assert.That(_result[0].PartContent, Is.EqualTo("Part 1"));
+            Assert.That(_result[0].Ordinal, Is.EqualTo(1));
+
+            Assert.That(_result[1].PartContent, Is.EqualTo("Part 2"));
+            Assert.That(_result[1].Ordinal, Is.EqualTo(2));
+
+            Assert.That(_result[2].PartContent, Is.EqualTo("Part 3"));
+            Assert.That(_result[2].Ordinal, Is.EqualTo(3));
+
+
+        }
     }
 }
