@@ -8,17 +8,18 @@ namespace PushNotificationsHandler.Controllers.Api
 {
     public class InboundMessagesController : ApiController
     {
-        private readonly IInboundProcessor _inboundProcessor;
+        private readonly IMessageModelFactory _messageModelFactory;
 
-        public InboundMessagesController(IInboundProcessor inboundProcessor)
+        public InboundMessagesController(IMessageModelFactory messageModelFactory)
         {
-            _inboundProcessor = inboundProcessor;
+            _messageModelFactory = messageModelFactory;
         }
 
         public void Post(InboundMessage message)
         {
             if (message == null) throw new ArgumentNullException("message");
-            _inboundProcessor.Push(message);
+            var messageModel =_messageModelFactory.CreateMessageModel(message.MessageText);
+            messageModel.Add();
         }
     }
 }

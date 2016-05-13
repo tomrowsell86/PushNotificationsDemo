@@ -102,8 +102,7 @@
     <Compile Include="Controllers\InboundMessageControllerTests.cs" />
     <Compile Include="Models\ColourFormatParserTests\ColourFormatParserMultipleFormatBlockTests.cs" />
     <Compile Include="Models\ColourFormatParserTests\ColourFormatParserSingleFormatBlockTests.cs" />
-    <Compile Include="Models\InboundProcessorWithMessagesFormattedMessageTests.cs" />
-    <Compile Include="Models\InboundProcessorWithMessagesUnFormattedMessageTests.cs" />
+    <Compile Include="Models\MessageModelFactoryTests.cs" />
     <Compile Include="Models\TestCaseBuilders\MessageBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

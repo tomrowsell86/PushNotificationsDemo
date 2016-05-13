@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace PushNotificationsHandler.Models.Services
@@ -9,17 +10,24 @@ namespace PushNotificationsHandler.Models.Services
     {
         private const string MessagePartColourPattern = @"\{colour:(?<colour>#[0-9A-Fa-f]{6})\}(?<messagePart>.+?)\{colour\}";
 
-        public IList<ColourFormattedPart> GetFormattedParts(string messageText)
+        public ColourFormatParseResult FormatMessage(string messageText)
         {
-            List<ColourFormattedPart> list = new List<ColourFormattedPart>();
+            var formattedParts = new List<ColourFormattedPart>();
+            var sb = new StringBuilder(messageText);
             var matches = Regex.Matches(messageText, MessagePartColourPattern).Cast<Match>().ToList();
 
-            for (int index = 0, ordinal = 1; index < matches.Count; index++,ordinal++)
+            for (int index = matches.Count-1; index >= 0; index--)
             {
+                string placeholder = "[" + (index + 1) + "]";
                 var m = matches[index];
-                list.Add(new ColourFormattedPart(m.Groups["colour"].Value, m.Groups["messagePart"].Value, ordinal));
+
+                formattedParts.Add(new ColourFormattedPart(m.Groups["colour"].Value, m.Groups["messagePart"].Value));
+
+                sb.Remove(m.Index, m.Length);
+                sb.Insert(m.Index, placeholder);
             }
-            return list;
+
+            return new ColourFormatParseResult(formattedParts, sb.ToString());
         }
     }
 }

@@ -13,8 +13,8 @@ namespace PushNotificationsHandler.UnitTests.Controllers
         [Test]
         public void GivenAnInboundMessage_WhenMessageIsPassedToTheApi_ThenInboundProcessorReceivesMessage()
         {
-            var inboundProcessor = new Mock<IInboundProcessor>();
-            var controller = new InboundMessagesController(inboundProcessor.Object);
+            var messageModelFactory = new Mock<IMessageModelFactory>();
+            var controller = new InboundMessagesController(messageModelFactory.Object);
 
 
             var inboundMessage = new InboundMessage
@@ -27,9 +27,12 @@ namespace PushNotificationsHandler.UnitTests.Controllers
                                      Now = DateTime.Now,
                                      To = "0778723133"
                                  };
+            var messageModel = new Mock<IMessageModel>();
+            messageModelFactory.Setup(mmf => mmf.CreateMessageModel(inboundMessage.MessageText)).Returns(messageModel.Object);
+
             controller.Post(inboundMessage);
 
-            inboundProcessor.Verify(ip => ip.Push(inboundMessage));
+            messageModel.Verify(mm => mm.Add());
         }
     }
 }

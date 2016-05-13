@@ -4,13 +4,11 @@ namespace PushNotificationsHandler.Models
     {
         private readonly string _colourRgb;
         private readonly string _partContent;
-        private readonly int _ordinal;
 
-        public ColourFormattedPart(string colourRgb, string partContent, int ordinal)
+        public ColourFormattedPart(string colourRgb, string partContent)
         {
             _colourRgb = colourRgb;
             _partContent = partContent;
-            _ordinal = ordinal;
         }
 
         public string ColourRgb
@@ -21,11 +19,6 @@ namespace PushNotificationsHandler.Models
         public string PartContent
         {
             get { return _partContent; }
-        }
-
-        public int Ordinal
-        {
-            get { return _ordinal; }
         }
     }
 }

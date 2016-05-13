@@ -202,9 +202,11 @@
     <Compile Include="Models\ColourFormattedPart.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\Services\ColourFormatParser.cs" />
+    <Compile Include="Models\Services\FormattedMessageModel.cs" />
+    <Compile Include="Models\Services\FormattedMessageModelFactory.cs" />
     <Compile Include="Models\Services\IColourFormatParser.cs" />
-    <Compile Include="Models\Services\IInboundProcessor.cs" />
-    <Compile Include="Models\Services\InboundProcessor.cs" />
+    <Compile Include="Models\Services\IMessageModel.cs" />
+    <Compile Include="Models\Services\IMessageModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Interface\IMessageRepository.cs" />
     <Compile Include="Repositories\MessageRepository.cs" />
