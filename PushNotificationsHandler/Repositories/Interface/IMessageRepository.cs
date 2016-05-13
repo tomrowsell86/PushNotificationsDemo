@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using PushNotificationsHandler.Models;
+using System;
+using PushNotificationsHandler.Models.Services;
 
 namespace PushNotificationsHandler.Repositories.Interface
 {
     public interface IMessageRepository
     {
-        void AddMessageParts(IList<ColourFormattedPart> formattedParts);
-        void AddMessage(MessageModel messageModel);
+        Guid AddMessage(IMessageModel messageModel);
     }
 }

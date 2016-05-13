@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.Models.Services
 {
@@ -6,16 +8,20 @@ namespace PushNotificationsHandler.Models.Services
     {
         private readonly string _messageText;
         private readonly IList<ColourFormattedPart> _colourFormattedParts;
+        private readonly IMessageRepository _messageRepository;
 
-        public FormattedMessageModel(string messageText, IList<ColourFormattedPart> colourFormattedParts)
+        public FormattedMessageModel(string messageText, IList<ColourFormattedPart> colourFormattedParts, IMessageRepository messageRepository)
         {
             _messageText = messageText;
             _colourFormattedParts = colourFormattedParts;
+            _messageRepository = messageRepository;
         }
+
+        public Guid? Id { get; private set; }
 
         public void Add()
         {
-            throw new System.NotImplementedException();
+            Id = _messageRepository.AddMessage(this);
         }
 
         public IList<ColourFormattedPart> FormattedParts

@@ -1,17 +1,12 @@
-using System.Collections.Generic;
-using PushNotificationsHandler.Models;
+using System;
+using PushNotificationsHandler.Models.Services;
 using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.Repositories
 {
     public class MessageRepository : IMessageRepository
     {
-        public void AddMessageParts(IList<ColourFormattedPart> formattedParts)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void AddMessage(MessageModel messageModel)
+        public Guid AddMessage(IMessageModel messageModel)
         {
             throw new System.NotImplementedException();
         }

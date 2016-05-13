@@ -1,6 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
 using PushNotificationsHandler.Models.Services;
+using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.UnitTests.Models
 {
@@ -12,7 +13,7 @@ namespace PushNotificationsHandler.UnitTests.Models
         [SetUp]
         public void GivenAMessageModelFactory_WhenCreateCalledWithColourFormattedMessage()
         {
-            var messageModelFactory = new FormattedMessageModelFactory(new ColourFormatParser());
+            var messageModelFactory = new FormattedMessageModelFactory(new ColourFormatParser(), new Mock<IMessageRepository>().Object);
             string messageText = "{colour:#00FF00}Part 1{colour} and then {colour:#00FF00}Part 2{colour} and then {colour:#00FF00}Part 3{colour}";
 
             _result = (FormattedMessageModel)messageModelFactory.CreateMessageModel(messageText);
