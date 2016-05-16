@@ -1,5 +1,7 @@
 using System;
+using System.Web.Http;
 using Microsoft.Practices.Unity;
+using Unity.WebApi;
 using Microsoft.Practices.Unity.Configuration;
 using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Services;
@@ -15,6 +17,7 @@ namespace PushNotificationsHandler.App_Start
         {
             var container = new UnityContainer();
             RegisterTypes(container);
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
             return container;
         });
 
@@ -28,7 +31,7 @@ namespace PushNotificationsHandler.App_Start
         {
             container.RegisterInstance<IMessageRepository>(new InMemoryMessageRepository());
             container.RegisterType<IColourFormatParser, ColourFormatParser>();
-            container.RegisterType<IMessageModelFactory, IMessageModelFactory>();
+            container.RegisterType<IMessageModelFactory, FormattedMessageModelFactory>();
             container.RegisterType<IMessageModelService, MessageModelService>();
         }
     }
