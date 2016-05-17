@@ -5,7 +5,7 @@ using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.Models.Services
 {
-    public class FormattedMessageModel : IMessageModel, IFormattableContent
+    public class FormattedMessageModel : IMessageModel
     {
         private readonly string _messageText;
         private readonly IList<ColourFormattableContent> _colourFormattedParts;
