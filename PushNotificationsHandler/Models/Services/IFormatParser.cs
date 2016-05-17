@@ -2,22 +2,22 @@ using System.Collections.Generic;
 
 namespace PushNotificationsHandler.Models.Services
 {
-    public interface IColourFormatParser
+    public interface IFormatParser
     {
-        ColourFormatParseResult FormatMessage(string messageText);
+        FormatParseResult FormatMessage(string messageText);
     }
 
-    public class ColourFormatParseResult
+    public class FormatParseResult
     {
-        private readonly IList<ColourFormattableContent> _formattedParts;
+        private readonly IList<IFormattableContent> _formattedParts;
         private readonly string _templatedMessage;
-        public ColourFormatParseResult(IList<ColourFormattableContent> formattedParts, string templatedMessage)
+        public FormatParseResult(IList<IFormattableContent> formattedParts, string templatedMessage)
         {
             _formattedParts = formattedParts;
             _templatedMessage = templatedMessage;
         }
 
-        public IList<ColourFormattableContent> FormattedParts
+        public IList<IFormattableContent> FormattedParts
         {
             get { return _formattedParts; }
         }

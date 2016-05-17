@@ -8,13 +8,13 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
     [TestFixture]
     public class ColourFormatParserSingleFormattedBlockMessageTests
     {
-        private ColourFormatParseResult _result;
+        private FormatParseResult _result;
 
         [OneTimeSetUp]
         public void GivenAMessageWithOneColourFormattingBlockForEntireMessage_WhenParsed()
         {
 
-            var colourFormatParser = new PushNotificationsHandler.Models.Services.ColourFormatParser();
+            var colourFormatParser = new PushNotificationsHandler.Models.Services.FormatParser();
             string messageText = "{colour:#FF0000}Hello World{colour}";
 
             _result = colourFormatParser.FormatMessage(messageText);
@@ -29,14 +29,14 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         [Test]
         public void ThenExpectedRgbColourValueSetInMessagePart()
         {
-            var colourFormattedPart = _result.FormattedParts[0];
+            var colourFormattedPart =  (ColourFormattableContent)_result.FormattedParts[0];
             Assert.That(colourFormattedPart.ColourRgb, Is.EqualTo("#FF0000"));
         }
 
         [Test]
         public void ThenExpectedPartContentValueSetInMessagePart()
         {
-            var colourFormattedPart = _result.FormattedParts[0];
+            var colourFormattedPart = (ColourFormattableContent)_result.FormattedParts[0];
             Assert.That(colourFormattedPart.PartContent, Is.EqualTo("Hello World"));
         }
 
@@ -45,12 +45,12 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
     [TestFixture]
     public class ColourFormatParserSingleFormattedBlockWordInterpolatedWithPlainMessageTextTests
     {
-        private ColourFormatParseResult _result;
+        private FormatParseResult _result;
 
         [SetUp]
         public void GivenAMessageWithFormattedBlockWordInterpolatedWithPlainText_WhenParsed()
         {
-            var colourFormatParser = new PushNotificationsHandler.Models.Services.ColourFormatParser();
+            var colourFormatParser = new PushNotificationsHandler.Models.Services.FormatParser();
             string messageText = "Hello {colour:#FF0000}World{colour}";
 
             _result = colourFormatParser.FormatMessage(messageText);
@@ -65,14 +65,14 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         [Test]
         public void ThenExpectedRgbColourValueSetInMessagePart()
         {
-            var colourFormattedPart = _result.FormattedParts[0];
+            var colourFormattedPart = (ColourFormattableContent)_result.FormattedParts[0];
             Assert.That(colourFormattedPart.ColourRgb, Is.EqualTo("#FF0000"));
         }
 
         [Test]
         public void ThenExpectedPartContentValueSetInMessagePart()
         {
-            var colourFormattedPart = _result.FormattedParts[0];
+            var colourFormattedPart = (ColourFormattableContent)_result.FormattedParts[0];
             Assert.That(colourFormattedPart.PartContent, Is.EqualTo("World"));
         }
     }
@@ -80,12 +80,12 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
     [TestFixture]
     public class ColourFormatParserSingleFormattedBlockLetterInterpolatedWithPlainMessageTextTests
     {
-        private ColourFormatParseResult _result;
+        private FormatParseResult _result;
 
         [SetUp]
         public void GivenAMessageWithFormattedBlockWordInterpolatedWithPlainText_WhenParsed()
         {
-            var colourFormatParser = new PushNotificationsHandler.Models.Services.ColourFormatParser();
+            var colourFormatParser = new PushNotificationsHandler.Models.Services.FormatParser();
             string messageText = "Hello Wo{colour:#00FF00}rld{colour}";
 
             _result = colourFormatParser.FormatMessage(messageText);
@@ -100,14 +100,14 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         [Test]
         public void ThenExpectedRgbColourValueSetInMessagePart()
         {
-            var colourFormattedPart = _result.FormattedParts[0];
+            var colourFormattedPart = (ColourFormattableContent)_result.FormattedParts[0];
             Assert.That(colourFormattedPart.ColourRgb, Is.EqualTo("#00FF00"));
         }
 
         [Test]
         public void ThenExpectedPartContentValueSetInMessagePart()
         {
-            var colourFormattedPart = _result.FormattedParts[0];
+            var colourFormattedPart = (ColourFormattableContent)_result.FormattedParts[0];
             Assert.That(colourFormattedPart.PartContent, Is.EqualTo("rld"));
         }
     }
@@ -118,7 +118,7 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         [Test]
         public void GivenAMessageWithSingleFormattedPartWithOutOfRangeColourRgbValue_WhenParsed_ThenIgnoredByParser()
         {
-            var colourFormatParser = new ColourFormatParser();
+            var colourFormatParser = new FormatParser();
             string messageText = "Hello Wo{colour:#00ZZ00}rld{colour}";
 
             var result = colourFormatParser.FormatMessage(messageText);

@@ -13,7 +13,7 @@ namespace PushNotificationsHandler.UnitTests.Models
         [SetUp]
         public void GivenAMessageModelFactory_WhenCreateCalledWithColourFormattedMessage()
         {
-            var messageModelFactory = new FormattedMessageModelFactory(new ColourFormatParser(), new Mock<IMessageRepository>().Object);
+            var messageModelFactory = new FormattedMessageModelFactory(new FormatParser(), new Mock<IMessageRepository>().Object);
             string messageText = "{colour:#00FF00}Part 1{colour} and then {colour:#00FF00}Part 2{colour} and then {colour:#00FF00}Part 3{colour}";
 
             _result = (FormattedMessageModel)messageModelFactory.CreateMessageModel(messageText);

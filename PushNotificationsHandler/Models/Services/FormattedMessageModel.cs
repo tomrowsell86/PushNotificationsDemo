@@ -8,10 +8,10 @@ namespace PushNotificationsHandler.Models.Services
     public class FormattedMessageModel : IMessageModel
     {
         private readonly string _messageText;
-        private readonly IList<ColourFormattableContent> _colourFormattedParts;
+        private readonly IList<IFormattableContent> _colourFormattedParts;
         private readonly IMessageRepository _messageRepository;
 
-        public FormattedMessageModel(string messageText, IList<ColourFormattableContent> colourFormattedParts, IMessageRepository messageRepository)
+        public FormattedMessageModel(string messageText, IList<IFormattableContent> colourFormattedParts, IMessageRepository messageRepository)
         {
             _messageText = messageText;
             _colourFormattedParts = colourFormattedParts;
@@ -25,7 +25,7 @@ namespace PushNotificationsHandler.Models.Services
             Id = _messageRepository.AddMessage(this);
         }
 
-        public IList<ColourFormattableContent> FormattedParts
+        public IList<IFormattableContent> FormattedParts
         {
             get { return _colourFormattedParts; }
         }

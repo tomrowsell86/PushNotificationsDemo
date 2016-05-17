@@ -16,7 +16,7 @@ namespace PushNotificationsHandler.UnitTests.Models
         [SetUp]
         public void GivenAMessageModel_WhenAddCalled()
         {
-            _messageModel = new FormattedMessageModel("A message", new List<ColourFormattableContent>(), _messageRepository.Object);
+            _messageModel = new FormattedMessageModel("A message", new List<IFormattableContent>(), _messageRepository.Object);
             _messageModel.Add();
         }
 
@@ -42,7 +42,7 @@ namespace PushNotificationsHandler.UnitTests.Models
             string expected = "<span style='color:#FF0000'>Formatted Message Part</span> A Message";
 
             var repository = new Mock<IMessageRepository>();
-            var formattedParts = new List<ColourFormattableContent>{ new ColourFormattableContent("#FF0000","Formatted Message Part")};
+            var formattedParts = new List<IFormattableContent>{ new ColourFormattableContent("#FF0000","Formatted Message Part")};
 
             var  messageModel =  new FormattedMessageModel("[1] A Message", formattedParts, repository.Object);
 

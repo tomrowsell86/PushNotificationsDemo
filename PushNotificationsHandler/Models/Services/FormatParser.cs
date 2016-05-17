@@ -6,13 +6,13 @@ using System.Text.RegularExpressions;
 
 namespace PushNotificationsHandler.Models.Services
 {
-    public class ColourFormatParser : IColourFormatParser
+    public class FormatParser : IFormatParser
     {
         private const string MessagePartColourPattern = @"\{colour:(?<colour>#[0-9A-Fa-f]{6})\}(?<messagePart>.+?)\{colour\}";
 
-        public ColourFormatParseResult FormatMessage(string messageText)
+        public FormatParseResult FormatMessage(string messageText)
         {
-            var formattedParts = new List<ColourFormattableContent>();
+            var formattedParts = new List<IFormattableContent>();
             var sb = new StringBuilder(messageText);
             var matches = Regex.Matches(messageText, MessagePartColourPattern).Cast<Match>().ToList();
 
@@ -27,7 +27,7 @@ namespace PushNotificationsHandler.Models.Services
                 sb.Insert(m.Index, placeholder);
             }
 
-            return new ColourFormatParseResult(formattedParts, sb.ToString());
+            return new FormatParseResult(formattedParts, sb.ToString());
         }
     }
 }

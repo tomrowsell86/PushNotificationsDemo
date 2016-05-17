@@ -206,10 +206,10 @@
     <Compile Include="Models\ColourFormattedPart.cs" />
     <Compile Include="Models\IFormattableContent.cs" />
     <Compile Include="Models\MessageModel.cs" />
-    <Compile Include="Models\Services\ColourFormatParser.cs" />
+    <Compile Include="Models\Services\FormatParser.cs" />
     <Compile Include="Models\Services\FormattedMessageModel.cs" />
     <Compile Include="Models\Services\FormattedMessageModelFactory.cs" />
-    <Compile Include="Models\Services\IColourFormatParser.cs" />
+    <Compile Include="Models\Services\IFormatParser.cs" />
     <Compile Include="Models\Services\IMessageModel.cs" />
     <Compile Include="Models\Services\IMessageModelFactory.cs" />
     <Compile Include="Models\Services\IMessageModelService.cs" />

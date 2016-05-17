@@ -4,10 +4,10 @@ namespace PushNotificationsHandler.Models.Services
 {
     public class FormattedMessageModelFactory : IMessageModelFactory
     {
-        private readonly IColourFormatParser _formatParser;
+        private readonly IFormatParser _formatParser;
         private readonly IMessageRepository _repository;
 
-        public FormattedMessageModelFactory(IColourFormatParser formatParser, IMessageRepository repository)
+        public FormattedMessageModelFactory(IFormatParser formatParser, IMessageRepository repository)
         {
             _formatParser = formatParser;
             _repository = repository;
