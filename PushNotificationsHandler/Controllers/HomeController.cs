@@ -20,7 +20,11 @@ namespace PushNotificationsHandler.Controllers
         public ActionResult Index()
         {
             var models = _messageModelService.GetMessages();
-            return View(new IndexViewModel{ InboundMessages = models});
+            return View(new IndexViewModel
+                        {
+                            InboundMessages = models,
+                            DeliveryNotifications = new List<DeliveryNotificationModel>()
+                        });
         }
     }
 }

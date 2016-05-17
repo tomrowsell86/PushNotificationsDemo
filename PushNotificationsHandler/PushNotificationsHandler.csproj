@@ -204,6 +204,7 @@
     </Compile>
     <Compile Include="Models\Api\InboundMessage.cs" />
     <Compile Include="Models\ColourFormattedPart.cs" />
+    <Compile Include="Models\DeliveryNotificationModel.cs" />
     <Compile Include="Models\IFormattableContent.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\MessageModel.cs" />

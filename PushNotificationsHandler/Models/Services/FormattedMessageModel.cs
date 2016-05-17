@@ -25,6 +25,8 @@ namespace PushNotificationsHandler.Models.Services
             Id = _messageRepository.AddMessage(this);
         }
 
+        public MessageSource Source { get; set; }
+
         public IList<IFormattableContent> FormattedParts
         {
             get { return _colourFormattedParts; }

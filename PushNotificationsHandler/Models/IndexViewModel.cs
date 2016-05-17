@@ -6,6 +6,6 @@ namespace PushNotificationsHandler.Models
     public class IndexViewModel
     {
         public IList<IMessageModel> InboundMessages { get; set; }
-    
+        public IList<DeliveryNotificationModel> DeliveryNotifications { get; set; }
     }
 }

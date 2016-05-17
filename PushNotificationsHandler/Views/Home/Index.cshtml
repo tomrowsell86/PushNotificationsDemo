@@ -1,7 +1,7 @@
 ﻿@model PushNotificationsHandler.Models.IndexViewModel
 
 @{
-    ViewBag.Title = "Esendex Push Notifications - Received Messages";
+    ViewBag.Title = "Esendex Push Notifications - A demonstration.";
     
 }
 
@@ -22,6 +22,9 @@
                     <th>
                         Message Text
                     </th>
+                    <th>
+                        Source
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,6 +33,9 @@
                     <tr>
                         <td>
                             @Html.Raw(message.FormatContent())
+                        </td>
+                        <td>
+                           <span style="padding: 2px; background: @message.Source.BrandingColourRgb; color: white">@message.Source.Description</span> 
                         </td>
                     </tr>
                 }
@@ -42,6 +48,28 @@
         <h3 class="h3">
             Delivery Notifications
         </h3>
+        @if (Model.DeliveryNotifications.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Notification Text
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var notification in Model.DeliveryNotifications)
+                    {
+                        <tr>
+                            <td>
+                                @notification.Description
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     </div>
     <div class="col-md-4">
        
