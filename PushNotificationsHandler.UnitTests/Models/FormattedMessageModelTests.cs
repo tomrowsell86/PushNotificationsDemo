@@ -16,7 +16,7 @@ namespace PushNotificationsHandler.UnitTests.Models
         [SetUp]
         public void GivenAMessageModel_WhenAddCalled()
         {
-            _messageModel = new FormattedMessageModel("A message", new List<ColourFormattedPart>(), _messageRepository.Object);
+            _messageModel = new FormattedMessageModel("A message", new List<ColourFormattableContent>(), _messageRepository.Object);
             _messageModel.Add();
         }
 
@@ -30,6 +30,25 @@ namespace PushNotificationsHandler.UnitTests.Models
         public void ThenMessageModelReceivesId()
         {
             Assert.That(_messageModel.Id, Is.Not.Null);
+        }
+    }
+
+    [TestFixture]
+    public class FormattedMessageModelPrintTests
+    {
+        [Test]
+        public void GivenAFormattedMessageWithFormattedParts_WhenFormatContentIsCalled_ThenPlaceholderReplaceWithExpectedHtmlFormattedElement()
+        {
+            string expected = "<span style='color:#FF0000'>Formatted Message Part</span> A Message";
+
+            var repository = new Mock<IMessageRepository>();
+            var formattedParts = new List<ColourFormattableContent>{ new ColourFormattableContent("#FF0000","Formatted Message Part")};
+
+            var  messageModel =  new FormattedMessageModel("[1] A Message", formattedParts, repository.Object);
+
+            var result = messageModel.FormatContent();
+
+            Assert.That(result, Is.EqualTo(expected));
         }
     }
 }

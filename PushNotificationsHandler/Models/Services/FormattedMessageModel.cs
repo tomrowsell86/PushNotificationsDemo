@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.Models.Services
 {
-    public class FormattedMessageModel : IMessageModel
+    public class FormattedMessageModel : IMessageModel, IFormattableContent
     {
         private readonly string _messageText;
-        private readonly IList<ColourFormattedPart> _colourFormattedParts;
+        private readonly IList<ColourFormattableContent> _colourFormattedParts;
         private readonly IMessageRepository _messageRepository;
 
-        public FormattedMessageModel(string messageText, IList<ColourFormattedPart> colourFormattedParts, IMessageRepository messageRepository)
+        public FormattedMessageModel(string messageText, IList<ColourFormattableContent> colourFormattedParts, IMessageRepository messageRepository)
         {
             _messageText = messageText;
             _colourFormattedParts = colourFormattedParts;
@@ -19,17 +20,12 @@ namespace PushNotificationsHandler.Models.Services
 
         public Guid? Id { get; private set; }
 
-        public string PrintMessage()
-        {
-            return MessageText;
-        }
-
         public void Add()
         {
             Id = _messageRepository.AddMessage(this);
         }
 
-        public IList<ColourFormattedPart> FormattedParts
+        public IList<ColourFormattableContent> FormattedParts
         {
             get { return _colourFormattedParts; }
         }
@@ -37,6 +33,16 @@ namespace PushNotificationsHandler.Models.Services
         public string MessageText
         {
             get { return _messageText; }
+        }
+
+        public string FormatContent()
+        {
+            var messageBuilder = new StringBuilder(MessageText);
+            for (int index = 0, partIndex = 1; index < FormattedParts.Count; index++, partIndex++)
+            {
+                messageBuilder.Replace("[" + partIndex + "]", FormattedParts[index].FormatContent());
+            }
+            return messageBuilder.ToString();
         }
     }
 }

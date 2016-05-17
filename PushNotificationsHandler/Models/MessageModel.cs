@@ -7,6 +7,6 @@ namespace PushNotificationsHandler.Models
     {
         public Guid Id { get; set; }
         public string Text { get; set; }
-        public IList<ColourFormattedPart> Parts { get; set; }
+        public IList<ColourFormattableContent> Parts { get; set; }
     }
 }

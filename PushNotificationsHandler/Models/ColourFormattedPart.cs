@@ -1,11 +1,11 @@
 namespace PushNotificationsHandler.Models
 {
-    public class ColourFormattedPart
+    public class ColourFormattableContent : IFormattableContent
     {
         private readonly string _colourRgb;
         private readonly string _partContent;
 
-        public ColourFormattedPart(string colourRgb, string partContent)
+        public ColourFormattableContent(string colourRgb, string partContent)
         {
             _colourRgb = colourRgb;
             _partContent = partContent;
@@ -19,6 +19,11 @@ namespace PushNotificationsHandler.Models
         public string PartContent
         {
             get { return _partContent; }
+        }
+
+        public string FormatContent()
+        {
+            return string.Format("<span style='color:{0}'>{1}</span>", ColourRgb, PartContent);
         }
     }
 }

@@ -9,15 +9,15 @@ namespace PushNotificationsHandler.Models.Services
 
     public class ColourFormatParseResult
     {
-        private readonly IList<ColourFormattedPart> _formattedParts;
+        private readonly IList<ColourFormattableContent> _formattedParts;
         private readonly string _templatedMessage;
-        public ColourFormatParseResult(IList<ColourFormattedPart> formattedParts, string templatedMessage)
+        public ColourFormatParseResult(IList<ColourFormattableContent> formattedParts, string templatedMessage)
         {
             _formattedParts = formattedParts;
             _templatedMessage = templatedMessage;
         }
 
-        public IList<ColourFormattedPart> FormattedParts
+        public IList<ColourFormattableContent> FormattedParts
         {
             get { return _formattedParts; }
         }

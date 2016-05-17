@@ -12,7 +12,7 @@ namespace PushNotificationsHandler.Models.Services
 
         public ColourFormatParseResult FormatMessage(string messageText)
         {
-            var formattedParts = new List<ColourFormattedPart>();
+            var formattedParts = new List<ColourFormattableContent>();
             var sb = new StringBuilder(messageText);
             var matches = Regex.Matches(messageText, MessagePartColourPattern).Cast<Match>().ToList();
 
@@ -21,7 +21,7 @@ namespace PushNotificationsHandler.Models.Services
                 string placeholder = "[" + (index + 1) + "]";
                 var m = matches[index];
 
-                formattedParts.Add(new ColourFormattedPart(m.Groups["colour"].Value, m.Groups["messagePart"].Value));
+                formattedParts.Add(new ColourFormattableContent(m.Groups["colour"].Value, m.Groups["messagePart"].Value));
 
                 sb.Remove(m.Index, m.Length);
                 sb.Insert(m.Index, placeholder);
