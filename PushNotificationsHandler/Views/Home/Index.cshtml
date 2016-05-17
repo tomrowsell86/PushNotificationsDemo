@@ -1,4 +1,4 @@
-﻿@model IList<PushNotificationsHandler.Models.Services.IMessageModel>
+﻿@model PushNotificationsHandler.Models.IndexViewModel
 
 @{
     ViewBag.Title = "Esendex Push Notifications - Received Messages";
@@ -11,14 +11,21 @@
 
 <div class="row">
     <div class="col-md-4">
-        @if (Model.Any())
+        <h3 class="h3">
+            Inbound Messages
+        </h3>
+        @if (Model.InboundMessages.Any())
         {
-            <table>
+            <table class="table">
                 <thead>
-                Message Text
+                <tr>
+                    <th>
+                        Message Text
+                    </th>
+                </tr>
                 </thead>
                 <tbody>
-                @foreach (var message in Model)
+                @foreach (var message in Model.InboundMessages)
                 {
                     <tr>
                         <td>
@@ -32,7 +39,9 @@
 
     </div>
     <div class="col-md-4">
-       
+        <h3 class="h3">
+            Delivery Notifications
+        </h3>
     </div>
     <div class="col-md-4">
        

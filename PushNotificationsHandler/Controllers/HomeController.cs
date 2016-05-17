@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Services;
 
 namespace PushNotificationsHandler.Controllers
@@ -19,7 +20,7 @@ namespace PushNotificationsHandler.Controllers
         public ActionResult Index()
         {
             var models = _messageModelService.GetMessages();
-            return View(models);
+            return View(new IndexViewModel{ InboundMessages = models});
         }
     }
 }

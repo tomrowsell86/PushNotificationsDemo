@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Moq;
 using NUnit.Framework;
 using PushNotificationsHandler.Controllers;
+using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Services;
 
 namespace PushNotificationsHandler.UnitTests.Controllers
@@ -27,7 +28,8 @@ namespace PushNotificationsHandler.UnitTests.Controllers
         [Test]
         public void ThenExpectedMessageModelsSetInViewModel()
         {
-            Assert.That(_result.Model, Is.EqualTo(_expectedMessageModels));
+            var model = (IndexViewModel)_result.Model;
+            Assert.That(model.InboundMessages, Is.EqualTo(_expectedMessageModels));
         }
     }
 }
