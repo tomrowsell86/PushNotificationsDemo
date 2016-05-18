@@ -15,6 +15,7 @@ namespace PushNotificationsHandler.Models.Api
          [DataMember]
          public Guid AccountId { get; set; }
 
+         [DataMember]
          public DateTime OccurredAt { get; set; }
     }
 }
