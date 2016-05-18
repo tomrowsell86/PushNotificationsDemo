@@ -18,7 +18,7 @@ namespace PushNotificationsHandler.Models.Services
             var parseResult = _formatParser.FormatMessage(messageText);
 
             var messageModel = new FormattedMessageModel(parseResult.TemplatedMessage, parseResult.FormattedParts,_repository);
-            messageModel.Source = new MessageSource { BrandingColourRgb = "#42145f", Description = "Esendex" };
+            messageModel.Source = new NotificationSource { BrandingColourRgb = "#42145f", Description = "Esendex" };
             return messageModel;
         }
     }

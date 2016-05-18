@@ -6,10 +6,10 @@ namespace PushNotificationsHandler.Models.Services
     {
         Guid? Id { get; }
         void Add();
-        MessageSource Source { get; }
+        NotificationSource Source { get; }
     }
 
-    public class MessageSource
+    public class NotificationSource
     {
         public string BrandingColourRgb { get; set; }
         public string Description { get; set; }
