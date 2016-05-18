@@ -5,6 +5,7 @@ using NUnit.Framework;
 using PushNotificationsHandler.Controllers;
 using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Services;
+using PushNotificationsHandler.Repositories;
 
 namespace PushNotificationsHandler.UnitTests.Controllers
 {
@@ -20,7 +21,7 @@ namespace PushNotificationsHandler.UnitTests.Controllers
         public void GivenAHomeController_WhenIndexViewRequested()
         {
             _messageModelService.Setup(mms => mms.GetMessages()).Returns(_expectedMessageModels);            
-            _controller = new HomeController(_messageModelService.Object);
+            _controller = new HomeController(_messageModelService.Object, new InMemoryDeliveryNotificationRepository());
             
             _result = (ViewResult)_controller.Index();
         }
