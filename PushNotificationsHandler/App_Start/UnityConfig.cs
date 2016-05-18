@@ -38,6 +38,7 @@ namespace PushNotificationsHandler.App_Start
             container.RegisterType<IMessageModelService, MessageModelService>();
             container.RegisterType<IHttpRestClientFactory, HttpRestClientFactory>(new InjectionConstructor(new NetworkCredential("tom.rowsell@esendex.com", "tVmGgPwEmKEL")));
             container.RegisterInstance<IDeliveryNotificationRepository>(new InMemoryDeliveryNotificationRepository());
+            container.RegisterType<ISentMessageService, SentMessageService>();
         }
     }
 }
