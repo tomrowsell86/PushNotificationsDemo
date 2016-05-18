@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace PushNotificationsHandler.Models.Api
 {
-    [DataContract(Namespace = "")]
+     [DataContract(Namespace = "")]
     public class MessageDelivered
     {
          [DataMember]

@@ -29,6 +29,7 @@ namespace PushNotificationsHandler.Models.Factories
     public class EsendexRestClient : IHttpRestClient
     {
         private readonly NetworkCredential _credential;
+        private Uri _restEndpointUri;
 
         public EsendexRestClient(NetworkCredential credential)
         {
@@ -37,7 +38,11 @@ namespace PushNotificationsHandler.Models.Factories
 
         public string GetTextResource(string resourcePath)
         {
-            var request = WebRequest.Create(new Uri("https://api.esendex.com/v1.0/" + resourcePath));
+            _restEndpointUri = new Uri("https://api.esendex.com/v1.0/");
+            var uriBuilder = new UriBuilder(_restEndpointUri);
+            uriBuilder.Path = resourcePath;
+
+            var request = WebRequest.Create(uriBuilder.Uri);
             request.Credentials = _credential;
             
             using(var response = request.GetResponse())
