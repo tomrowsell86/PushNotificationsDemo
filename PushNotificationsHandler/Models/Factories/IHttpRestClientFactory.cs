@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Xml.Linq;
 using PushNotificationsHandler.Models.Services;
 
 namespace PushNotificationsHandler.Models.Factories
@@ -40,9 +41,14 @@ namespace PushNotificationsHandler.Models.Factories
             request.Credentials = _credential;
             
             using(var response = request.GetResponse())
-            using (var sr = new StreamReader(response.GetResponseStream()))
+            using (var s = response.GetResponseStream())
             {
-                return sr.ReadToEnd();
+                var responseBody = XElement.Load(s);
+
+                var bodyTextElem = responseBody.Element("bodytext");
+                if (bodyTextElem == null) 
+                    throw new NullReferenceException("No body text found in response");
+                return bodyTextElem.Value;
             }
         }
     }
