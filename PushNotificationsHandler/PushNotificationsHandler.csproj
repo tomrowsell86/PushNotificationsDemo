@@ -207,12 +207,14 @@
     <Compile Include="Models\Api\InboundMessage.cs" />
     <Compile Include="Models\ColourFormattedPart.cs" />
     <Compile Include="Models\DeliveryNotificationModel.cs" />
-    <Compile Include="Models\Factories\IHttpRestClientFactory.cs" />
+    <Compile Include="Models\Factories\ApiEndpoint.cs" />
+    <Compile Include="Models\Factories\RestClient.cs" />
     <Compile Include="Models\IFormattableContent.cs" />
-    <Compile Include="Models\IHttpRestClient.cs" />
+    <Compile Include="Models\IRestClient.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\SentMessageModel.cs" />
+    <Compile Include="Models\Services\Exceptions\RestApiCallException.cs" />
     <Compile Include="Models\Services\FormatParser.cs" />
     <Compile Include="Models\Services\FormattedMessageModel.cs" />
     <Compile Include="Models\Services\FormattedMessageModelFactory.cs" />
