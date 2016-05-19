@@ -56,6 +56,9 @@
                         <th>
                             Delivered Message Text
                         </th>
+                        <th>
+                            Source
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,6 +67,9 @@
                         <tr>
                             <td>
                                 @notification.Description
+                            </td>
+                            <td>
+                                <span style="padding: 2px; background: @notification.Source.BrandingColourRgb; color: white">@notification.Source.Description</span>
                             </td>
                         </tr>
                     }
