@@ -16,7 +16,7 @@ namespace PushNotificationsHandler.Models.Services
         {
             var response = _restClient.GetResourceReponse(string.Format("messageheaders/{0}/body", messageId));
 
-            var bodyTextElem = response.Element("bodytext");
+            var bodyTextElem = response.Element(response.GetDefaultNamespace() + "bodytext");
             if (bodyTextElem == null)
                 throw new RestApiCallException(string.Format("The bodytext element was not found when requesting message body with Id{0}.", messageId));
             
