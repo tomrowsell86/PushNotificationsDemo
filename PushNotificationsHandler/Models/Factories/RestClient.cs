@@ -24,9 +24,9 @@ namespace PushNotificationsHandler.Models.Factories
             
             using(var response = request.GetResponse())
             using (var responseStream = response.GetResponseStream())
+            using(var reader = new StreamReader(responseStream))
             {
-                var responseBody = XElement.Load(responseStream);
-                responseStream.Flush();
+                var responseBody = XElement.Load(reader);
 
                 return responseBody;
             }
