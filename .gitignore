@@ -10,3 +10,5 @@ packages/
 
 #Our build script output
 output/
+
+*.secrets

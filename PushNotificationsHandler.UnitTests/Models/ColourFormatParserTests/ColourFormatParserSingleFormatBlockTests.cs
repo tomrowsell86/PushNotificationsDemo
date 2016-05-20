@@ -14,7 +14,7 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         public void GivenAMessageWithOneColourFormattingBlockForEntireMessage_WhenParsed()
         {
 
-            var colourFormatParser = new PushNotificationsHandler.Models.Services.FormatParser();
+            var colourFormatParser = new FormatParser();
             string messageText = "{colour:#FF0000}Hello World{colour}";
 
             _result = colourFormatParser.FormatMessage(messageText);
@@ -50,7 +50,7 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         [SetUp]
         public void GivenAMessageWithFormattedBlockWordInterpolatedWithPlainText_WhenParsed()
         {
-            var colourFormatParser = new PushNotificationsHandler.Models.Services.FormatParser();
+            var colourFormatParser = new FormatParser();
             string messageText = "Hello {colour:#FF0000}World{colour}";
 
             _result = colourFormatParser.FormatMessage(messageText);
@@ -85,7 +85,7 @@ namespace PushNotificationsHandler.UnitTests.Models.ColourFormatParserTests
         [SetUp]
         public void GivenAMessageWithFormattedBlockWordInterpolatedWithPlainText_WhenParsed()
         {
-            var colourFormatParser = new PushNotificationsHandler.Models.Services.FormatParser();
+            var colourFormatParser = new FormatParser();
             string messageText = "Hello Wo{colour:#00FF00}rld{colour}";
 
             _result = colourFormatParser.FormatMessage(messageText);

@@ -14,7 +14,7 @@ namespace PushNotificationsHandler.Models.Services
         {
             var formattedParts = new List<IFormattableContent>();
             var sb = new StringBuilder(messageText);
-            var matches = Regex.Matches(messageText, MessagePartColourPattern).Cast<Match>().ToList();
+            var matches = Regex.Matches(messageText, MessagePartColourPattern);
 
             for (int index = matches.Count-1; index >= 0; index--)
             {

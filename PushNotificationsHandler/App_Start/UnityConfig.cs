@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.Net;
 using System.Security;
 using System.Web.Http;
@@ -38,7 +39,7 @@ namespace PushNotificationsHandler.App_Start
             container.RegisterType<IMessageModelService, MessageModelService>();
             container.RegisterType<IRestClient, RestClient>(
                 new InjectionConstructor(
-                    new NetworkCredential("tom.rowsell@esendex.com", "tVmGgPwEmKEL"), 
+                    new NetworkCredential(ConfigurationManager.AppSettings["esendexApiLogin"], ConfigurationManager.AppSettings["esendexApiPassword"]), 
                     new ApiEndpoint("v1.0",new Uri("https://api.esendex.com"))));
             container.RegisterInstance<IDeliveryNotificationRepository>(new InMemoryDeliveryNotificationRepository());
             container.RegisterType<ISentMessageService, SentMessageService>();
