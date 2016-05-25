@@ -1,23 +1,21 @@
 using System;
 using System.Configuration;
 using System.Net;
-using System.Security;
 using System.Web.Http;
 using Microsoft.Practices.Unity;
-using Unity.WebApi;
-using Microsoft.Practices.Unity.Configuration;
 using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Factories;
 using PushNotificationsHandler.Models.Services;
 using PushNotificationsHandler.Repositories;
 using PushNotificationsHandler.Repositories.Interface;
+using Unity.WebApi;
 
-namespace PushNotificationsHandler.App_Start
+namespace PushNotificationsHandler
 {
     public class UnityConfig
     {
         #region Unity Container
-        private static readonly Lazy<IUnityContainer> _container = new Lazy<IUnityContainer>(() =>
+        private static readonly Lazy<IUnityContainer> Container = new Lazy<IUnityContainer>(() =>
         {
             var container = new UnityContainer();
             RegisterTypes(container);
@@ -27,7 +25,7 @@ namespace PushNotificationsHandler.App_Start
 
         public static IUnityContainer GetConfiguredContainer()
         {
-            return _container.Value;
+            return Container.Value;
         }
         #endregion
 
@@ -38,8 +36,8 @@ namespace PushNotificationsHandler.App_Start
             container.RegisterType<IMessageModelFactory, FormattedMessageModelFactory>();
             container.RegisterType<IMessageModelService, MessageModelService>();
             container.RegisterType<IRestClient, RestClient>(
-                new InjectionConstructor(
-                    new NetworkCredential(ConfigurationManager.AppSettings["esendexApiLogin"], ConfigurationManager.AppSettings["esendexApiPassword"]), 
+                new InjectionFactory(c => new NetworkCredential(ConfigurationManager.AppSettings["esendexApiLogin"], ConfigurationManager.AppSettings["esendexApiPassword"])),
+                new InjectionFactory(c=>
                     new ApiEndpoint("v1.0",new Uri("https://api.esendex.com"))));
             container.RegisterInstance<IDeliveryNotificationRepository>(new InMemoryDeliveryNotificationRepository());
             container.RegisterType<ISentMessageService, SentMessageService>();
