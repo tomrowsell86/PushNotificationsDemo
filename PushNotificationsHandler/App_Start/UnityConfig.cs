@@ -36,9 +36,9 @@ namespace PushNotificationsHandler
             container.RegisterType<IMessageModelFactory, FormattedMessageModelFactory>();
             container.RegisterType<IMessageModelService, MessageModelService>();
             container.RegisterType<IRestClient, RestClient>(
-                new InjectionFactory(c => new NetworkCredential(ConfigurationManager.AppSettings["esendexApiLogin"], ConfigurationManager.AppSettings["esendexApiPassword"])),
-                new InjectionFactory(c=>
-                    new ApiEndpoint("v1.0",new Uri("https://api.esendex.com"))));
+                new InjectionFactory(c =>new RestClient(
+                                            new NetworkCredential(ConfigurationManager.AppSettings["esendexApiLogin"], ConfigurationManager.AppSettings["esendexApiPassword"])
+                                            ,new ApiEndpoint("v1.0",new Uri("https://api.esendex.com")))));
             container.RegisterInstance<IDeliveryNotificationRepository>(new InMemoryDeliveryNotificationRepository());
             container.RegisterType<ISentMessageService, SentMessageService>();
         }
