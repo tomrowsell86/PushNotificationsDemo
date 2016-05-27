@@ -19,7 +19,7 @@ namespace PushNotificationsHandler.Controllers.Api
         {
             if (message == null) throw new ArgumentNullException("message");
             var messageModel =_messageModelFactory.CreateMessageModel(message.MessageText);
-            messageModel.Add();
+            messageModel.Save();
         }
     }
 }

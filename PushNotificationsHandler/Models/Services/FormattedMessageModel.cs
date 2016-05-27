@@ -20,7 +20,7 @@ namespace PushNotificationsHandler.Models.Services
 
         public Guid? Id { get; private set; }
 
-        public void Add()
+        public void Save()
         {
             Id = _messageRepository.AddMessage(this);
         }

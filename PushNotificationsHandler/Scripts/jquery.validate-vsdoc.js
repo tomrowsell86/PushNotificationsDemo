@@ -868,7 +868,7 @@ $.extend($.validator, {
 	
 	addClassRules: function(className, rules) {
 		/// <summary>
-		/// Add a compound class method - useful to refactor common combinations of rules into a single
+		/// Save a compound class method - useful to refactor common combinations of rules into a single
 		/// class.
 		/// </summary>
 		/// <param name="name" type="String">
@@ -1011,7 +1011,7 @@ $.extend($.validator, {
 	// http://docs.jquery.com/Plugins/Validation/Validator/addMethod
 	addMethod: function(name, method, message) {
 		/// <summary>
-		/// Add a custom validation method. It must consist of a name (must be a legal javascript 
+		/// Save a custom validation method. It must consist of a name (must be a legal javascript 
 		/// identifier), a javascript based function and a default string message.
 		/// </summary>
 		/// <param name="name" type="String">

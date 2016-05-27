@@ -32,7 +32,7 @@ namespace PushNotificationsHandler.UnitTests.Controllers
 
             controller.Post(inboundMessage);
 
-            messageModel.Verify(mm => mm.Add());
+            messageModel.Verify(mm => mm.Save());
         }
     }
 }

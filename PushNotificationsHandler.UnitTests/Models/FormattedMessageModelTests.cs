@@ -17,7 +17,7 @@ namespace PushNotificationsHandler.UnitTests.Models
         public void GivenAMessageModel_WhenAddCalled()
         {
             _messageModel = new FormattedMessageModel("A message", new List<IFormattableContent>(), _messageRepository.Object);
-            _messageModel.Add();
+            _messageModel.Save();
         }
 
         [Test]
