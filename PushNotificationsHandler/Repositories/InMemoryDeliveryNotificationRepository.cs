@@ -2,17 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PushNotificationsHandler.Models;
+using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.Repositories
 {
-    public interface IDeliveryNotificationRepository
+    public class InMemoryDeliveryNotificationRepository : IDeliveryNotificationRepository
     {
-        void Save(SentMessageModel sentMessage);
-        IList<SentMessageModel> GetAllDeliveredMessages();
-    }
-
-    public class InMemoryDeliveryNotificationRepository : IDeliveryNotificationRepository {
-
         private readonly Dictionary<Guid, SentMessageModel> _cache = new Dictionary<Guid, SentMessageModel>();
         private object syncObj = new object();
 

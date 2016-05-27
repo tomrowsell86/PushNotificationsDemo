@@ -226,7 +226,8 @@
     <Compile Include="Models\Services\MessageModelService.cs" />
     <Compile Include="Models\Services\SentMessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IDeliveryNotificationRepository.cs" />
+    <Compile Include="Repositories\InMemoryDeliveryNotificationRepository.cs" />
+    <Compile Include="Repositories\Interface\IDeliveryNotificationRepository.cs" />
     <Compile Include="Repositories\Interface\IMessageRepository.cs" />
     <Compile Include="Repositories\InMemoryMessageRepository.cs" />
   </ItemGroup>

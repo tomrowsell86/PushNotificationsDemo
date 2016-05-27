@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Net;
 using System.Xml.Linq;
-using PushNotificationsHandler.Models.Services;
 
 namespace PushNotificationsHandler.Models.Factories
 {
@@ -17,7 +16,7 @@ namespace PushNotificationsHandler.Models.Factories
             _apiEndpoint = apiEndpoint;
         }
 
-        public XElement GetResourceReponse(string resourcePath)
+        public XElement GetResourceReponseAsXml(string resourcePath)
         {
             var request = WebRequest.Create(new Uri(string.Format("{0}/{1}/{2}",_apiEndpoint.Uri, _apiEndpoint.Version,resourcePath)));
             request.Credentials = _credential;

@@ -3,6 +3,7 @@ using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Api;
 using PushNotificationsHandler.Models.Services;
 using PushNotificationsHandler.Repositories;
+using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.Controllers.Api
 {

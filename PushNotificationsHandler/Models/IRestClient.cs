@@ -4,6 +4,6 @@ namespace PushNotificationsHandler.Models
 {
     public interface IRestClient
     {
-        XElement GetResourceReponse(string resourcePath);
+        XElement GetResourceReponseAsXml(string resourcePath);
     }
 }

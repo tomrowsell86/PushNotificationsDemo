@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Services;
 using PushNotificationsHandler.Repositories;
+using PushNotificationsHandler.Repositories.Interface;
 
 namespace PushNotificationsHandler.Controllers
 {

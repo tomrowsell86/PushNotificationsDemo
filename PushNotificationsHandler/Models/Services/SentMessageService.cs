@@ -14,7 +14,7 @@ namespace PushNotificationsHandler.Models.Services
 
         public string GetMessageText(Guid messageId)
         {
-            var response = _restClient.GetResourceReponse(string.Format("messageheaders/{0}/body", messageId));
+            var response = _restClient.GetResourceReponseAsXml(string.Format("messageheaders/{0}/body", messageId));
 
             var bodyTextElem = response.Element(response.GetDefaultNamespace() + "bodytext");
             if (bodyTextElem == null)
