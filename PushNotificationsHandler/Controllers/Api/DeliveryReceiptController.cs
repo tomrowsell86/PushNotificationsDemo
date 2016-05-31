@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Api;
 using PushNotificationsHandler.Models.Services;
@@ -30,6 +31,22 @@ namespace PushNotificationsHandler.Controllers.Api
 
                               };
             _repository.Save(sentMessage);
+        }
+
+        public IHttpActionResult Get(Guid messageId, string sendNumber)
+        {
+            var sentMessage = new SentMessageModel
+                              {
+                                  Source = new NotificationSource { BrandingColourRgb = "#3B757D", Description = "Url Postbacks" }
+                                  ,
+                                  MessageText = "Not supported by Collstream API!"
+                                  ,
+                                  DeliveredAt = DateTime.UtcNow
+                                  ,
+                                  MessageId = messageId
+                              };
+            _repository.Save(sentMessage);
+            return Ok();
         }
     }
 }
