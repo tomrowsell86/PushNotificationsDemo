@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.Http;
-using PushNotificationsHandler.Models;
 using PushNotificationsHandler.Models.Api;
 using PushNotificationsHandler.Models.Services;
 

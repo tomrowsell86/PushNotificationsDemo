@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F709AD80-451E-44E6-BE32-3DFEBE2801F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PushNotifications.DatabaseRepositories</RootNamespace>
+    <AssemblyName>PushNotifications.DatabaseRepositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PushHandlerContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="dbdeploy\Database.targets">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dbdeploy\DatabaseDeploy.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbdeploy\DatabaseDeploy.pssym">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dbdeploy\DbDeploy2.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dbdeploy\License.rtf" />
+    <None Include="dbdeploy\log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="dbdeploy\MSBuild Extension Pack Help.chm" />
+    <None Include="dbdeploy\MSBuild.ExtensionPack.dll.config" />
+    <None Include="dbdeploy\MSBuild.ExtensionPack.tasks" />
+    <None Include="dbdeploy\MSBuild.ExtensionPack.VersionNumber.targets" />
+    <None Include="dbdeploy\rebuildDemo.bat" />
+    <None Include="packages.config" />
+    <None Include="rebuildDemo.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Command Line Step By Step Instructions.txt" />
+    <Content Include="dbdeploy\Command Line Step By Step Instructions.txt" />
+    <Content Include="dbdeploy\CommandLine.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\CommandLine.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\DatabaseDeploy.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\DatabaseDeploy.Core.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\DatabaseDeploy.Core.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\DatabaseDeploy.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\DatabaseDeploy.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\DatabaseDeploy.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Database\Scripts\mssql\changelog.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\ChangeScriptFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\ChangeScriptHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\EnsureChangeLogExists.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\GetChangeLog.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\ScriptFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\ScriptHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\UndoFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\UndoHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\UndoScriptFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\UndoScriptHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\mssql\UndoToken.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\changelog.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\ChangeScriptFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\ChangeScriptHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\EnsureChangeLogExists.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\GetChangeLog.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\ScriptFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\ScriptHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\UndoFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\UndoHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\UndoScriptFooter.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\UndoScriptHeader.sql" />
+    <Content Include="dbdeploy\Database\Scripts\ora\UndoToken.sql" />
+    <Content Include="dbdeploy\Interop.COMAdmin.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Interop.IWshRuntimeLibrary.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Ionic.Zip.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\IronPython.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\IronPython.Modules.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\IronRuby.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\IronRuby.Libraries.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\log4net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\log4net.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Microsoft.Practices.Unity.Configuration.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Microsoft.Practices.Unity.Configuration.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Microsoft.Practices.Unity.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Microsoft.Practices.Unity.RegistrationByConvention.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Microsoft.Practices.Unity.RegistrationByConvention.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\Microsoft.Practices.Unity.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.BizTalk.dll" />
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.BizTalk.pdb" />
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.Crm.dll" />
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.Crm.pdb" />
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.dll" />
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.pdb" />
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.Sql2014.dll" />
+    <Content Include="dbdeploy\MSBuild.ExtensionPack.Sql2014.pdb" />
+    <Content Include="dbdeploy\Oracle.ManagedDataAccess.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\PostSharp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbdeploy\PostSharp.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\Deployed Scripts\0001 Create EsendexDeliveryReceipts Table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\Rebuild\0002 Create Admin User.sql" />
+    <Content Include="Scripts\Test Data\Placeholder.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
